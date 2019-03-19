@@ -4,6 +4,8 @@
     <p>{{message}}</p>
     <hr>
     <pre>{{now}}</pre>
+    <hr>
+    <router-link to="/other">Go to Other</router-link>
   </section>
 </template>
 
