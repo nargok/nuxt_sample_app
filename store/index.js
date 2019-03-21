@@ -4,7 +4,8 @@ const createStore = () => {
   return new Vuex.Store({
     state: function () {
       return {
-        message: 'This is store maessage!',
+        message: 'Count Number',
+        counter: 0,
       };
     },
   })

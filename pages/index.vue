@@ -5,6 +5,12 @@
     <hr>
     <pre>{{now}}</pre>
     <hr>
+    <div class="link" @click="doAction">
+      <a>
+        clicked: {{ $store.state.counter }}
+      </a>
+    </div>
+    <hr>
     <router-link to="/other">Go to Other</router-link>
   </section>
 </template>
@@ -26,10 +32,24 @@ export default {
         + ':' + d.getSeconds();
     }, 1000);
   },
+  methods: {
+    doAction: function () {
+      this.$store.state.counter++;
+    }
+  },
 };
 </script>
 
 <style>
+a {
+  font-size: 16pt;
+}
+
+.link {
+  background-color: #def;
+  padding: 10px;
+}
+
 .container {
   padding: 10px;
 }
@@ -53,4 +73,5 @@ pre {
 hr {
   margin: 10px 0;
 }
+
 </style>
