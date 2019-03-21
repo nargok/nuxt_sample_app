@@ -6,9 +6,9 @@
     <pre>{{now}}</pre>
     <hr>
     <div class="link"
-      @click="$store.commit('count')"
-      @click.shift="$store.commit('reset')">
-      <a>
+      @click.exact="$store.commit('count', 1)"
+      @click.shift="$store.commit('count', 2)">
+      <a @click.stop="$store.commit('reset')">
         clicked: {{ $store.state.counter }}
       </a>
     </div>
