@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <h1>{{title}}</h1>
-    <p>{{message}}</p>
+    <p>{{$store.state.message}}</p>
     <hr>
     <pre>{{now}}</pre>
     <hr>
