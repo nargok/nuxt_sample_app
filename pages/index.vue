@@ -6,8 +6,7 @@
     <pre>{{now}}</pre>
     <hr>
     <div class="link"
-      @click.exact="$store.commit({type: 'count', message: 'add 1', add: 1})"
-      @click.shift="$store.commit({type: 'count', message: 'add 5', add: 5})">
+      @click="$store.dispatch('doit')">
       <a @click.stop="$store.commit('reset')">
         clicked: {{ $store.state.counter }}
       </a>
