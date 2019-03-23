@@ -15,7 +15,7 @@
   import axios from 'axios';
 
   const listing_url = "https://vue-sample-baa0f.firebaseio.com/person.json/";
-  const base_url = "https://vue-sample-baa0f.firebaseio.com/person/";
+  const base_url = "https://vue-sample-baa0f.firebaseio.com/person.json?orderBy=%22$key%22&equalTo=%22";
 
     export default {
     data: function () {
@@ -32,7 +32,7 @@
     },
     methods: {
       getData: function() {
-        const id_url = base_url + this.find + '.json';
+        const id_url = base_url + this.find + '%22';
         axios.get(id_url).then((res) => {
           this.message = 'get ID=' + this.find;
           this.json_data = res.data;
