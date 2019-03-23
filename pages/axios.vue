@@ -5,8 +5,8 @@
      <input v-model="find">
      <button @click="getData">Click</button>
      <hr>
-     <ul>
-       <li>{{json_data}}</li>
+     <ul v-for="(data, key) in json_data">
+       <li><strong>{{key}}</strong><br>{{data}}</li>
      </ul>
    </section>
 </template>
@@ -15,7 +15,7 @@
   import axios from 'axios';
 
   const listing_url = "https://vue-sample-baa0f.firebaseio.com/person.json/";
-  const base_url = "https://vue-sample-baa0f.firebaseio.com/person.json?orderBy=%22$key%22&equalTo=%22";
+  const base_url = "https://vue-sample-baa0f.firebaseio.com/person.json?orderBy=%22age%22";
 
     export default {
     data: function () {
@@ -32,9 +32,10 @@
     },
     methods: {
       getData: function() {
-        const id_url = base_url + this.find + '%22';
-        axios.get(id_url).then((res) => {
-          this.message = 'get ID=' + this.find;
+        const range = this.find.split(',');
+        const age_url = base_url + "&startAt=" + range[0] + "&endAt=" + range[1];
+        axios.get(age_url).then((res) => {
+          this.message = 'get: '+ range[0] + ' <= age <= ' + range[1];
           this.json_data = res.data;
         }).catch((error) => {
           this.message = 'ERROR!';
