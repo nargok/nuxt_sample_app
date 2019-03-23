@@ -26,7 +26,6 @@
 
 <script>
   import firebase from 'firebase';
-  import axios from 'axios';
   const config = {
     apiKey: process.env.FIREBASE_API_KEY,
     authDomain: process.env.FIREBASE_AUTH_DOMAIN,
@@ -137,6 +136,64 @@
   }
 </script>
 
-<style scoped>
-
+<style>
+.login {
+  font-weight: bold;
+  font-size: 12pt;
+  cursor: pointer;
+}
+.list1 {
+  text-align: left;
+  font-size: 16pt;
+}
+.list2 {
+  text-align: right;
+  font-size: 10pt;
+}
+.container {
+  padding: 5px 10px;
+}
+h1 {
+  font-size: 60pt;
+  color: #345980;
+}
+p {
+  padding-top: 5px;
+  margin: 10px 0;
+  font-size: 20pt;
+}
+.message {
+  font-size: 16pt;
+}
+div {
+  font-size: 14pt;
+}
+ul {
+  margin: 0 10px;
+  background-color: aliceblue;
+}
+li {
+  padding: 10px;
+  font-size: 14pt;
+}
+tr th {
+  width: 120px;
+  background-color: darkblue;
+  color: white;
+  font-size: 16pt;
+}
+tr td {
+  padding: 5px 10px;
+  background-color: #eef;
+  font-size: 14pt;
+}
+hr {
+  margin: 10px 0;
+}
+input {
+  font-size: 14pt;
+}
+button {
+  font-size: 14pt;
+}
 </style>
