@@ -47,6 +47,9 @@
         axios.get(url + this.msg).then(res => {
           this.message = 'get ID=' + this.msg;
           this.json_data  = res.data;
+        }).catch((error) => {
+          this.message = error.message;
+          this.json_data = {};
         });
       },
     },
