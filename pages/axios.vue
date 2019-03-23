@@ -25,7 +25,12 @@
      </table>
      <hr>
      <ul v-for="(data, key) in json_data">
-       <li><strong>{{key}}</strong><br>{{data}}</li>
+       <li>
+         <strong>{{key}}</strong>
+         <button @click="deleteData(key)">Delete</button>
+         <br>
+         {{data}}
+       </li>
      </ul>
    </section>
 </template>
@@ -61,6 +66,14 @@
         }).catch((error) => {
           this.message = 'ERROR!';
           console.log(error.message);
+        });
+      },
+      deleteData: function(email) {
+        // TODO URLをaddと共通化する
+        const delete_url = url + '/' + email + '.json';
+        axios.delete(delete_url).then((res) => {
+          this.message = email + 'を削除しました';
+          this.getData();
         });
       },
       getData: function() {
