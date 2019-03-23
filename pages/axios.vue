@@ -14,10 +14,10 @@
 <script>
   import axios from 'axios';
 
+  const listing_url = "https://vue-sample-baa0f.firebaseio.com/person.json/";
+  const base_url = "https://vue-sample-baa0f.firebaseio.com/person/";
 
-  const url = "https://vue-sample-baa0f.firebaseio.com/person/";
-
-  export default {
+    export default {
     data: function () {
       return {
         title: 'Axios',
@@ -26,9 +26,13 @@
         json_data: {},
       };
     },
+    asyncData: async function() {
+      const result = await axios.get(listing_url);
+      return { json_data: result.data}
+    },
     methods: {
       getData: function() {
-        const id_url = url + this.find + '.json';
+        const id_url = base_url + this.find + '.json';
         axios.get(id_url).then((res) => {
           this.message = 'get ID=' + this.find;
           this.json_data = res.data;
